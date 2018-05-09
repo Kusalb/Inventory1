@@ -13,3 +13,16 @@ Route::get('/', ['uses'=>'InventoryController@index']);
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+
+
+
+
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('students','InventoryController');
+
+
+Route::get('/inventory/create',['as'=>'inventory.create','uses'=>'InventoryController@create']);
+Route::post('/inventory/store',['as'=>'inventory.store','uses'=>'InvnentoryController@store']);
+Route::get('/inventory/index',['as'=>'inventory.index','uses'=>'InventoryController@index']);
+
