@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -22,7 +23,14 @@ class UserController extends Controller
     }
     public function store(Request $request)
     {
-        $user = User::create($request->all());
-        return redirect ('user/show/'.$user->id);
+//        dd($request->all());
+        $user = new User();
+        $input = $request->all();
+//        dd($input);
+        $user->username = $input['username'];
+        $user->password = $input['password'];
+        $user->email = $input['email'];
+        $user->save();
+        return redirect ('user/index');
     }
 }

@@ -10,7 +10,7 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($users as $key=>$customer)
+        @foreach($users as $key=>$user)
             <tr>
                 <td>{{$key + 1}}</td>
                 <td>{{$user->id}}</td>
