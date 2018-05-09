@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class UsersTableSeeder extends Seeder
 {
@@ -11,11 +12,11 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->delete();
-        User::create(array(
-            'username' => 'abhishek',
-            'email'    => 'abhishek.kadariya@gmail.com',
-            'password' => Hash::make('garibo'),
-        ));  //
+        DB::table('users')->insert([
+            'name' => str_random(10),
+            'email' => str_random(10).'@gmail.com',
+            'password' => bcrypt('secret'),
+            'remember_token' => bcrypt('secret'),
+        ]); //
     }
 }

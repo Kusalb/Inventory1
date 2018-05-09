@@ -19,10 +19,14 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('students','InventoryController');
+Route::resource('inventory','InventoryController');
 
 
 Route::get('/inventory/create',['as'=>'inventory.create','uses'=>'InventoryController@create']);
 Route::post('/inventory/store',['as'=>'inventory.store','uses'=>'InvnentoryController@store']);
 Route::get('/inventory/index',['as'=>'inventory.index','uses'=>'InventoryController@index']);
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
