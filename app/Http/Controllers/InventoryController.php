@@ -29,7 +29,7 @@ class InventoryController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'roll_no' => 'required | unique:students',
+            'roll_no' => 'required | unique:inventory',
             'name' => 'required | string',
         ]);
         $input = $request->all();
